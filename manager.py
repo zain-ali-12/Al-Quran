@@ -13,4 +13,5 @@ def generate_suras_files():
         with open(i+".txt", 'w') as new_file:
             pass
 
-generate_suras_files()
+def generate_surah_html(filename):
+    pass
