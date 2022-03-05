@@ -49,11 +49,13 @@ def gen_html(filename):
             aya_div = soup.new_tag('div')
             aya_div['class'] = 'aya'
             aya_div['id'] = aya.attrib['index']
-            aya_text = soup.new_tag('p')
+            aya_text = soup.new_tag('div')
+            aya_text['class'] = "aya-text"
             aya_text.string = aya.attrib['text']
             aya_end = soup.new_tag('div')
             aya_end.string = '۝'
-            aya_text.append(aya_end)
+            aya_end['class'] = 'aya-end'
+            # aya_text.append(aya_end)
             aya_div.append(aya_text)
 
             for aya_attrib in aya.attrib:
