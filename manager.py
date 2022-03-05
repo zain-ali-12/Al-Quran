@@ -11,6 +11,7 @@ def gen_html(filename):
         <link rel="stylesheet" href="../../css/style.css">
     </head>
     <body>
+        <div id="container"></div>
     </body>
     </html>'''
 
@@ -27,13 +28,13 @@ def gen_html(filename):
     version = filename[6:-4]
     os.mkdir(version)
     os.chdir(version)
-    
+
     for sura in quran_root.getchildren():
         soup = bs4.BeautifulSoup(TEMPLATE)
         index = sura.attrib['index']
         current_sura_meta = sura_meta[int(index) - 1]
 
-        body = soup.find('body')
+        container = soup.find("div", {"id": "container"})
 
         sura_div = soup.new_tag('div')
         sura_div['class'] = "sura"
@@ -48,14 +49,21 @@ def gen_html(filename):
             aya_div = soup.new_tag('div')
             aya_div['class'] = 'aya'
             aya_div['id'] = aya.attrib['index']
-            aya_div.string = aya.attrib['text']
+            aya_text = soup.new_tag('p')
+            aya_text.string = aya.attrib['text']
+            aya_end = soup.new_tag('div')
+            aya_end.string = '۝'
+            aya_text.append(aya_end)
+            aya_div.append(aya_text)
 
             for aya_attrib in aya.attrib:
                 aya_div[aya_attrib] = aya.attrib[aya_attrib]
         
             sura_div.append(aya_div)
-        body.append(sura_title)
-        body.append(sura_div)
+
+        container.append(sura_title)
+        container.append(sura_div)
+
         while len(index) < 3:
             index = '0' + index
 

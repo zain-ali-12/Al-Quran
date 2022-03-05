@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.sura{
+    font-size: 2rem;
+    width: 70vw;
+}
+
+.aya {
+    text-align: right;
+    display: flex;
+}
