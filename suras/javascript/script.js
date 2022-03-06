@@ -1,0 +1,1 @@
+document.getElementsByClassName("aya")[1].attributes['index'].value
