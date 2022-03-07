@@ -63,12 +63,23 @@ h1 {
 /* ---------------------------------------- */
 
 #home-container {
+    margin-top: 3rem;
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: center;
     flex-direction: column;
 }
 
+#home-container::before {
+    content: "Al-Quran";
+    text-align: center;
+    font-size: 10rem;
+    margin-bottom: 3rem;
+}
+
 .sura-link {
-    font-size: 2rem;
+    line-height: 2;
+    font-size: 4rem;
+    letter-spacing: 0.7rem;
+    text-align: center;
 }
