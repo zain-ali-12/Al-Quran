@@ -16,7 +16,7 @@ arabic_numbers = {
 
 
 def gen_html(filename):
-    TEMPLATE = f'''<!DOCTYPE html>
+    TEMPLATE = r'''<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -130,8 +130,8 @@ def gen_home_html():
 
 if __name__ == "__main__":
     versions_list = [version for version in os.listdir('Versions')]
-    gen_home_html()
+    #gen_home_html()
 
-    # for version in versions_list:
-    #     gen_html(version)
+    for version in versions_list:
+        gen_html(version)
     
