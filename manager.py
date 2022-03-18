@@ -39,10 +39,15 @@ def gen_html(filename):
 
     os.chdir(r'suras\html')
     version = filename[6:-4]
-    os.mkdir(version)
+    try:
+        os.mkdir(version)
+    except Exception as e:
+        pass
     os.chdir(version)
 
+
     for sura in quran_root.getchildren():
+        print(sura_meta)
         soup = bs4.BeautifulSoup(TEMPLATE)
         index = sura.attrib['index']
         current_sura_meta = sura_meta[int(index) - 1]
@@ -53,7 +58,7 @@ def gen_html(filename):
         sura_div['class'] = "sura"
 
         sura_title = soup.new_tag('h1')
-        sura_title.string = sura.attrib['name']
+        sura_title.string = f"{sura.attrib['name']}"
 
         for sura_attrib in current_sura_meta.keys():
             sura_div[sura_attrib] = current_sura_meta[sura_attrib]
