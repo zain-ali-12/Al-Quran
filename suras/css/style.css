@@ -4,8 +4,18 @@
 
 @font-face {
     font-family: 'PDMS Saleem';
-    src: URL("/suras/fonts/_PDMS_Saleem_QuranFont.ttf") format('truetype');
-  }
+    src: URL("/suras/fonts/PDMS_Saleem_QuranFont.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'IndoPak';
+    src: URL("/suras/fonts/Al\ Qalam\ Quran\ Majeed.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Bismillah';
+    src: URL("/suras/fonts/bismillah.ttf") format('truetype');
+}
 
 *{
     padding: 0;
@@ -22,6 +32,7 @@
 
 h1 {
     font-size: calc(var(--font-size) * 1.5);
+    font-family: 'Sura Heading';
 }
 
 .sura{
@@ -41,7 +52,7 @@ h1 {
     width: inherit;
     display: inline;
     font-family: serif;
-    font-family: 'PDMS Saleem';
+    font-family: 'IndoPak';
 }
 
 .aya-end {
@@ -58,7 +69,6 @@ h1 {
     font-size: calc(var(--font-size) * 0.5);
     position: absolute;
 }
-
 
 /* ---------------------------------------- */
 

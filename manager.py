@@ -1,3 +1,4 @@
+from pprint import pformat
 import xml.etree.ElementTree as ET
 import bs4, os
 
@@ -47,7 +48,7 @@ def gen_html(filename):
 
 
     for sura in quran_root.getchildren():
-        print(sura_meta)
+        # print(sura_meta)
         soup = bs4.BeautifulSoup(TEMPLATE)
         index = sura.attrib['index']
         current_sura_meta = sura_meta[int(index) - 1]
