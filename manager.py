@@ -58,8 +58,20 @@ def gen_html(filename):
         sura_div = soup.new_tag('div')
         sura_div['class'] = "sura"
 
-        sura_title = soup.new_tag('h1')
-        sura_title.string = f"{sura.attrib['name']}"
+        sura_title = soup.new_tag('div')
+        sura_title['id'] = "sura-title"
+        sura_name = soup.new_tag('h1')
+        sura_name.string = f"{sura.attrib['name']}"
+        sura_type = soup.new_tag("div")
+        sura_type_ar = current_sura_meta['type']
+        if sura_type_ar == "Meccan":
+            sura_type_ar = ""
+        else:
+            sura_type_ar = ""
+        sura_type.string = f"{sura_type_ar}"
+        sura_title.append(sura_name)
+        sura_title.append(sura_type)
+
 
         for sura_attrib in current_sura_meta.keys():
             sura_div[sura_attrib] = current_sura_meta[sura_attrib]
